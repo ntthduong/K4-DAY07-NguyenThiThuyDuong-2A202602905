@@ -105,6 +105,10 @@ def run_manual_demo(question: str | None = None, sample_files: list[str] | None 
     else:
         embedder = _mock_embed
 
+    import sys
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
     print(f"\nEmbedding backend: {getattr(embedder, '_backend_name', embedder.__class__.__name__)}")
 
     store = EmbeddingStore(collection_name="manual_test_store", embedding_fn=embedder)
@@ -115,8 +119,9 @@ def run_manual_demo(question: str | None = None, sample_files: list[str] | None 
     print(f"Query: {query}")
     search_results = store.search(query, top_k=3)
     for index, result in enumerate(search_results, start=1):
+        content_preview = result['content'][:120].replace('\n', ' ').encode('utf-8', errors='replace').decode('utf-8')
         print(f"{index}. score={result['score']:.3f} source={result['metadata'].get('source')}")
-        print(f"   content preview: {result['content'][:120].replace(chr(10), ' ')}...")
+        print(f"   content preview: {content_preview}...")
 
     print("\n=== KnowledgeBaseAgent Test ===")
     agent = KnowledgeBaseAgent(store=store, llm_fn=demo_llm)

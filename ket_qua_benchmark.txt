@@ -1,0 +1,69 @@
+Loading 10 documents from data\warranty-policies...
+  doi-tra-bao-hanh-cellphones-buyer.md: 7 chunks
+  doi-tra-bao-hanh-lazada-buyer.md: 4 chunks
+  doi-tra-bao-hanh-lazada-seller.md: 5 chunks
+  doi-tra-bao-hanh-samsung-buyer.md: 4 chunks
+  doi-tra-bao-hanh-shopee-buyer.md: 5 chunks
+  doi-tra-bao-hanh-shopee-seller.md: 7 chunks
+  doi-tra-bao-hanh-sunhouse-buyer.md: 5 chunks
+  doi-tra-bao-hanh-tgdd-buyer.md: 7 chunks
+  doi-tra-bao-hanh-tiki-seller.md: 4 chunks
+  doi-tra-bao-hanh-vinfast-buyer.md: 6 chunks
+
+Total chunks: 54
+Stored 54 documents in EmbeddingStore
+
+================================================================================
+BENCHMARK RESULTS
+================================================================================
+
+--- Query 1: Thời hạn yêu cầu đổi trả hoặc hoàn tiền dành cho người mua là bao nhiêu ngày? ---
+Filter: {'audience': 'buyer'}
+  1. score=0.3256 doc_id=doi-tra-bao-hanh-shopee-buyer
+     al Shop, LG Official Store, Asus, HP, Dell, Philips...). - Người mua cũng có thể liên hệ trực tiếp với Trung tâm bảo hành của Nhà sản xuất hoặc Nhà bá...
+  2. score=0.2026 doc_id=doi-tra-bao-hanh-lazada-buyer ✓ EXPECTED [kw: 30 ngày]
+     a hàng**: Áp dụng hóa đơn/biên nhận gửi kèm gói hàng. Thời hạn bảo hành tính từ ngày ghi trên hóa đơn. - **Bảo hành bằng Phiếu bảo hành & Hóa đơn**: C...
+  3. score=0.1890 doc_id=doi-tra-bao-hanh-shopee-buyer
+      hành điện tử. - **Thời gian bảo hành tại Nhà sản xuất**: Từ vài ngày đến 2 tuần tùy thuộc vào linh kiện thay thế. - **Thời gian bảo hành thông qua Sh...
+  Expected doc in top-3: YES
+
+--- Query 2: Thời hạn Người bán phải phản hồi và gửi khiếu nại Trả hàng/Hoàn tiền là bao nhiêu lâu? ---
+Filter: {'audience': 'seller'}
+  1. score=0.2988 doc_id=doi-tra-bao-hanh-lazada-seller ✓ EXPECTED [kw: khiếu nại]
+     óng gói và chuyển sang trạng thái "Sẵn sàng giao hàng" (Ready to Ship). - **Đang giao (In Transit)**: Đơn hàng đã bàn giao thành công cho đơn vị vận c...
+  2. score=0.2923 doc_id=doi-tra-bao-hanh-tiki-seller ✓ EXPECTED [kw: 48 giờ, khiếu nại]
+     thời gian xử lý 2-7 ngày làm việc). 4. **Chốt kết quả**: Tiki đưa ra quyết định xử lý cuối cùng căn cứ theo chứng cứ do hai bên cung cấp.  ---  ## 3. ...
+  3. score=0.1535 doc_id=doi-tra-bao-hanh-lazada-seller ✓ EXPECTED [kw: khiếu nại]
+     ẵn sàng giao hàng" trong vòng **24 giờ làm việc**. - **In phiếu giao hàng (Shipping Label)**: Dán phiếu vận chuyển rõ mã vạch, mã đơn hàng ngoài bao b...
+  Expected doc in top-3: YES
+
+--- Query 3: Thời hạn bảo hành xe máy điện và Pin LFP VinFast là bao nhiêu năm? ---
+  1. score=0.2850 doc_id=doi-tra-bao-hanh-lazada-seller
+      đồng ý hoàn tiền cho người mua và tính điểm vi phạm uy tín gian hàng....
+  2. score=0.2494 doc_id=doi-tra-bao-hanh-shopee-seller
+     ng vòng **3 đến 5 ngày làm việc**.  ### 2. Điều kiện để Người Bán khiếu nại thành công Người bán cần khiếu nại đúng hạn (trong 2 ngày) và cung cấp các...
+  3. score=0.2236 doc_id=doi-tra-bao-hanh-vinfast-buyer ✓ EXPECTED
+     hông chính hãng, hoặc hoán cải trái phép so với thiết kế ban đầu. 2. Lái xe trong điều kiện khắc nghiệt như đua xe, chở quá tải, ngập nước, hoặc lạm d...
+  Expected doc in top-3: YES
+
+--- Query 4: Các trường hợp nào thiết bị di động bị từ chối bảo hành hoặc bị trừ phí khi đổi trả? ---
+  1. score=0.4776 doc_id=doi-tra-bao-hanh-lazada-buyer
+     n sản phẩm còn thời hạn bảo hành. 2. **Điền thông tin**: Đăng ký phiếu bảo hành và cắt nhãn bảo hành bên ngoài. 3. **Đóng gói sản phẩm**: Bỏ sản phẩm ...
+  2. score=0.3409 doc_id=doi-tra-bao-hanh-lazada-seller
+     óng gói và chuyển sang trạng thái "Sẵn sàng giao hàng" (Ready to Ship). - **Đang giao (In Transit)**: Đơn hàng đã bàn giao thành công cho đơn vị vận c...
+  3. score=0.2812 doc_id=doi-tra-bao-hanh-shopee-seller
+     ng vòng **3 đến 5 ngày làm việc**.  ### 2. Điều kiện để Người Bán khiếu nại thành công Người bán cần khiếu nại đúng hạn (trong 2 ngày) và cung cấp các...
+  Expected doc in top-3: NO
+
+--- Query 5: Người bán cần chuẩn bị những bằng chứng gì khi khiếu nại đơn hàng bị trả về không nguyên vẹn? ---
+Filter: {'audience': 'seller'}
+  1. score=0.2509 doc_id=doi-tra-bao-hanh-lazada-seller ✓ EXPECTED
+     óng gói và chuyển sang trạng thái "Sẵn sàng giao hàng" (Ready to Ship). - **Đang giao (In Transit)**: Đơn hàng đã bàn giao thành công cho đơn vị vận c...
+  2. score=0.1180 doc_id=doi-tra-bao-hanh-lazada-seller ✓ EXPECTED [kw: video, 6 mặt]
+     ẵn sàng giao hàng" trong vòng **24 giờ làm việc**. - **In phiếu giao hàng (Shipping Label)**: Dán phiếu vận chuyển rõ mã vạch, mã đơn hàng ngoài bao b...
+  3. score=0.1171 doc_id=doi-tra-bao-hanh-tiki-seller ✓ EXPECTED [kw: video]
+      kết (từ 15 đến 30 ngày) và chịu phí vận chuyển giao trả hàng cho khách sau bảo hành. - Trường hợp lỗi do Nhà sản xuất hoặc Nhà bán không thể sửa chữa...
+  Expected doc in top-3: YES
+
+================================================================================
+Done.
